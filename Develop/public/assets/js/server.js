@@ -6,20 +6,26 @@ const PORT = 3001;
 
 app.use(express.static('public'));
 
-app.get('/', (req, res) => res.send('Navigate to /send or /routes'));
+app.get('/', (req, res) => {
+    fs.readFile(`Develop/db/db.json`,
+        (err, data) => {
+            if (err) throw err;
+            res.send(data);
+        })
+});
 
-app.get('/send', (req, res) =>
-    res.sendFile(path.join(__dirname, 'public/sendFile.html'))
-);
 
-app.get('/routes', (req, res) =>
-    res.sendFile(path.join(__dirname, 'public/routes.html'))
-);
+
+
 
 
 app.get('/notes', (req, res) => {
-    const notesPath = path.join(__dirnam, '../notes.html');
+    const notesPath = path.join(__dirname, '../notes.html');
     res.sendFile(notesPath)
+});
+
+app.get('*', (req, res) => {
+    res.sendFile(__dirname + '/public/index.html');
 });
 
 app.listen(PORT, () =>
