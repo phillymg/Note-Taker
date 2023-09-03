@@ -17,12 +17,13 @@ This application allows the user to write  notes and save them for future refere
 
 ## Installation
 
-Run the command "npm i" in to install node modules.
+There are none.
 
 ## Usage
 
+Use this link to access:
 
-
+https://note-tastic-6b844eaabec9.herokuapp.com/notes
 
 ## License
 This project uses the MIT license.
